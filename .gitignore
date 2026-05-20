@@ -1,0 +1,48 @@
+# ============================
+# GIZLI ANAHTAR DOSYALARI
+# ============================
+.env
+.env.local
+.env.*.local
+
+# ============================
+# PYTHON
+# ============================
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# ============================
+# VERI DOSYALARI
+# ============================
+# ============================
+# VERI DOSYALARI
+# ============================
+# Buyuk/yeniden uretilebilir veri dosyalarini yukleme
+data/*.csv
+data/chart_*.png
+data/rapor_*.html
+# Ama JSON ozetleri commit et (kucuk + mulakatci icin ornek)
+# data/analiz_*.json ve data/ai_yorum_*.json yuklenecek
+
+# ============================
+# MAC SISTEM DOSYALARI
+# ============================
+.DS_Store
+._*
+
+# ============================
+# IDE / EDITOR
+# ============================
+.vscode/
+.idea/
+*.swp
+
+# ============================
+# LOG DOSYALARI
+# ============================
+*.log

@@ -1,0 +1,34 @@
+{
+  "tarih": "2026-05-20",
+  "kaynak_analiz": "data/analiz_2026-05-20.json",
+  "model": "claude-sonnet-4-5",
+  "kullanim": {
+    "giris_token": 1537,
+    "cikis_token": 782,
+    "tahmini_maliyet_usd": 0.016341
+  },
+  "yorum": {
+    "haftanin_ozeti": "900 IT ilanı üzerinden yapılan analizde Python'un 301 ilanla baskın pozisyonda olduğu, ABD maaşlarının tüm rollerde UK'dan %30-157 daha yüksek seyrettiği görülüyor. Skill çıkarım oranı %43.7 seviyesinde kalırken, Machine Learning ve AWS gibi ileri düzey beceriler ortalama maaşları yukarı çekiyor.",
+    "yukselen_skiller": [
+      {
+        "skill": "Machine Learning",
+        "yorum": "55 ilanda geçiyor ve 102,742 USD ortalama maaşla Python'dan %5 daha yüksek gelir sağlıyor."
+      },
+      {
+        "skill": "FastAPI",
+        "yorum": "15 ilanda yer alıyor ve modern Python backend geliştirmede Django'ya alternatif olarak öne çıkıyor."
+      },
+      {
+        "skill": "LLM",
+        "yorum": "8 ilanda görünmesi, yapay zeka uzmanlığına olan talebin somut göstergesi."
+      }
+    ],
+    "maas_icgorüleri": [
+      "ABD'de data scientist rolü 133,471 USD ortalama ile en yüksek maaşı alırken, UK'da aynı rol 51,822 GBP ile %157 daha düşük seyrediyor.",
+      "Python developer maaşları UK'da 80,996 GBP, ABD'de 114,959 USD seviyesinde ve her iki pazarda da data analyst ve data scientist rollerinden belirgin şekilde yüksek.",
+      "Excel ve Power BI gibi temel analiz araçları 66-68K USD bandında kalırken, AWS ve ETL becerileri 100K USD üzeri ortalama maaşla ödüllendiriliyor."
+    ],
+    "stratejik_icgoru": "Python tek başına 301 ilanda geçerken, Machine Learning kombinasyonu sadece 55 ilanda yer alıyor ancak %5 maaş primi sağlıyor. Bu, piyasada temel Python bilgisinin metalaştığını, fark yaratmanın spesifik uzmanlık alanları (ML, cloud, modern framework) gerektirdiğini gösteriyor. Alım yapan şirketler için: genel Python yetenekten ziyade AWS/ML gibi derinlemesine beceri setlerine odaklanmak daha stratejik.",
+    "veri_kalitesi_notu": "Almanya verisi maaş analizine dahil edilememiş (%7 maaş bilgisi). Skill çıkarım oranı %43.7 ile orta seviyede, gerçek skill talebi daha yüksek olabilir. Analizler UK ve ABD ağırlıklı, Avrupa pazarı eksik temsil ediliyor."
+  }
+}
