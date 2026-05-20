@@ -1,0 +1,53 @@
+name: Haftalık IT Pazar Raporu
+
+# Ne zaman çalışsın?
+on:
+  # Otomatik: Her Pazartesi UTC 06:00 = Türkiye 09:00
+  schedule:
+    - cron: '0 6 * * 1'
+  
+  # Manuel: GitHub arayüzünden istediğin zaman tetikle
+  workflow_dispatch:
+
+jobs:
+  rapor-uret:
+    name: Rapor Üret ve Gönder
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Repodaki kodu indir
+      - name: Kodu Çek
+        uses: actions/checkout@v4
+      
+      # 2. Python kurulumu
+      - name: Python 3.11 Kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+      
+      # 3. Bağımlılıkları kur
+      - name: Bağımlılıkları Yükle
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      
+      # 4. Pipeline'ı çalıştır (tüm secret'lar ortam değişkeni olarak verilir)
+      - name: Pipeline'ı Çalıştır
+        env:
+          ADZUNA_APP_ID:       ${{ secrets.ADZUNA_APP_ID }}
+          ADZUNA_API_KEY:      ${{ secrets.ADZUNA_API_KEY }}
+          ANTHROPIC_API_KEY:   ${{ secrets.ANTHROPIC_API_KEY }}
+          GMAIL_ADRES:         ${{ secrets.GMAIL_ADRES }}
+          GMAIL_APP_SIFRE:     ${{ secrets.GMAIL_APP_SIFRE }}
+          ALICI_ADRES:         ${{ secrets.ALICI_ADRES }}
+        run: python main_runner.py
+      
+      # 5. Üretilen veriyi 30 gün GitHub'da sakla (debug için)
+      - name: Çıktıları Yedekle
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: rapor-ciktilari
+          path: data/
+          retention-days: 30
