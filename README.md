@@ -7,6 +7,30 @@ Her hafta otomatik çalışır, **5 ülkeden 3,500+ IT iş ilanını** toplar, *
 ---
 
 ## 📊 Sistem Mimarisi
+
+```mermaid
+flowchart LR
+    A["🌍 Adzuna API<br/>5 ülke · 7 meslek"] --> B["📄 CSV<br/>~3500 ilan"]
+    B --> C["🧹 pandas + regex<br/>155+ skill"]
+    C --> D["🤖 Claude Sonnet<br/>pazar yorumu"]
+    C --> E["📊 matplotlib<br/>3 grafik + heatmap"]
+    D --> F["📧 HTML rapor"]
+    E --> F
+    F --> G["📨 Gmail SMTP<br/>CID image"]
+    H["⏰ GitHub Actions<br/>Pzt 09:00 TR"] -.tetikler.-> A
+
+    style A fill:#1F4E79,color:#fff,stroke:#0d3358,stroke-width:2px
+    style B fill:#F5F5F5,color:#333,stroke:#999
+    style C fill:#2E75B6,color:#fff,stroke:#1F4E79,stroke-width:2px
+    style D fill:#2E75B6,color:#fff,stroke:#1F4E79,stroke-width:2px
+    style E fill:#2E75B6,color:#fff,stroke:#1F4E79,stroke-width:2px
+    style F fill:#D5E8F0,color:#1F4E79,stroke:#2E75B6,stroke-width:2px
+    style G fill:#1F4E79,color:#fff,stroke:#0d3358,stroke-width:2px
+    style H fill:#FFF4D6,color:#8B6914,stroke:#D4AF37,stroke-width:2px
+```
+
+---
+
 ┌────────────────┐     ┌─────────┐     ┌──────────────┐     ┌────────────┐
 │  Adzuna API    │ ──> │   CSV   │ ──> │   pandas     │ ──> │  Claude AI │
 │  (5 ülke)      │     │ (raw)   │     │  + regex     │     │  (Sonnet)  │
@@ -179,31 +203,6 @@ Profesyonel veri analizinde **kaynağı sorgulamak** kritiktir. Bu projedeki bil
 Her hafta otomatik çalışır, **5 ülkeden 3,500+ IT iş ilanını** toplar, **AI ile yorumlar** ve HTML rapor olarak e-posta gönderir.
 
 ---
-
-## 📊 Sistem Mimarisi
-
-```mermaid
-flowchart LR
-    A["🌍 Adzuna API<br/>5 ülke · 7 meslek"] --> B["📄 CSV<br/>~3500 ilan"]
-    B --> C["🧹 pandas + regex<br/>155+ skill"]
-    C --> D["🤖 Claude Sonnet<br/>pazar yorumu"]
-    C --> E["📊 matplotlib<br/>3 grafik + heatmap"]
-    D --> F["📧 HTML rapor"]
-    E --> F
-    F --> G["📨 Gmail SMTP<br/>CID image"]
-    H["⏰ GitHub Actions<br/>Pzt 09:00 TR"] -.tetikler.-> A
-
-    style A fill:#1F4E79,color:#fff,stroke:#0d3358,stroke-width:2px
-    style B fill:#F5F5F5,color:#333,stroke:#999
-    style C fill:#2E75B6,color:#fff,stroke:#1F4E79,stroke-width:2px
-    style D fill:#2E75B6,color:#fff,stroke:#1F4E79,stroke-width:2px
-    style E fill:#2E75B6,color:#fff,stroke:#1F4E79,stroke-width:2px
-    style F fill:#D5E8F0,color:#1F4E79,stroke:#2E75B6,stroke-width:2px
-    style G fill:#1F4E79,color:#fff,stroke:#0d3358,stroke-width:2px
-    style H fill:#FFF4D6,color:#8B6914,stroke:#D4AF37,stroke-width:2px
-```
-
-
 
 **Akış:** Adzuna API'den gelen ham ilan verisi → pandas ile temizlenip skill çıkarımı yapılır → paralel olarak hem Claude AI yorumlanır hem matplotlib grafikleri üretilir → ikisi tek HTML raporda birleşir → Gmail SMTP ile gönderilir. Tüm sistem GitHub Actions ile her Pazartesi 09:00'da (TR saati) otomatik tetiklenir.
 
