@@ -1,0 +1,35 @@
+{
+  "tarih": "2026-05-25",
+  "kaynak_analiz": "data/analiz_2026-05-25.json",
+  "model": "claude-sonnet-4-5",
+  "kullanim": {
+    "giris_token": 3450,
+    "cikis_token": 964,
+    "tahmini_maliyet_usd": 0.02481
+  },
+  "yorum": {
+    "haftanin_ozeti": "3498 ilanin analiz edildigi bu haftada Machine Learning 592 gorunumle en cok aranan skill olurken, bulut teknolojileri (Azure 381, AWS 331) guclu talebini surdurdu. Ulkeler arasi maas dengesi korunurken, ABD'de Yazilim Muhendisligi ortalama 182.224 USD ile en yuksek maas grubunu olusturdu.",
+    "yukselen_skiller": [
+      {
+        "skill": "Machine Learning",
+        "yorum": "592 gorunumle liste basinda, diger skillere gore belirgin bir ara acmis durumda."
+      },
+      {
+        "skill": "LLM",
+        "yorum": "73 gorunumle ilk 20'ye girerek, buyuk dil modelleri uzerine calismanin artan onemini gosteriyor."
+      },
+      {
+        "skill": "Databricks",
+        "yorum": "84 gorunumle veri muhendisligi ekosisteminde guclu bir platform tercihi haline geldi."
+      }
+    ],
+    "maas_icgoruleri": [
+      "ABD'de Yazilim Muhendisleri 182.224 USD ortalama ile en yuksek maas grubunu olusturur, Bulut Muhendisleri 143.919 USD ve Veri Muhendisleri 130.026 USD ile takip eder.",
+      "UK'de DevOps Muhendisleri 75.038 GBP, Yazilim Muhendisleri 73.896 GBP ve Veri Muhendisleri 71.896 GBP ile yakin ortalamalar gosterirken, Siber Guvenlik 48.692 GBP ile goreceli olarak daha dusuk.",
+      "Polonya'da Makine Ogrenmesi Muhendisleri 321.729 PLN ortalamayla diger roller arasinda on plana cikarken (Siber Guvenlik 255.795 PLN, Veri/Is Analisti 223.322 PLN), Almanya'da Yazilim Muhendisligi 81.449 EUR ile en yuksek ortalamaya sahip (78 ilan uzerinden).",
+      "Agile skillinin ortalama maas etkisi 150.071 ile en yuksek seviyede, Python 146.031 ve Kubernetes 138.946 ile onu takip ediyor - bu uç skilller arasi is birliginin degerini gosteriyor."
+    ],
+    "stratejik_icgoru": "Machine Learning'in 592 gorunumle acik ara liderliginin yaninda, LLM'in ilk 20 skill arasina girmesi kritik bir donum noktasina isaret ediyor. GenAI donusumu yalnizca ML muhendislerini degil, bu teknolojileri entegre edebilecek yazilim ve veri mühendislerini de talep ediyor. Agile ve CI/CD gibi skilllerin yuksek maas ortalamalarina sahip olmasi, teknik derinligin yanindan surecsel olgunlugun da onem kazandigini gosteriyor.",
+    "veri_kalitesi_notu": "Skill bulunma orani %54.3 ile makul seviyede ancak iyilestirilebilir. Almanya'da maas bilgisi sadece 78 ilan uzerinden elde edildi (ornek kucuk), bu ulke icin trend yorumlari diger ulkelere gore daha az guvenilir. Polonya 446 maasli ilan ile en yuksek veri yogunluguna sahip."
+  }
+}

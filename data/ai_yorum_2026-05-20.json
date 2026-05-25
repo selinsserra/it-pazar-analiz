@@ -3,32 +3,32 @@
   "kaynak_analiz": "data/analiz_2026-05-20.json",
   "model": "claude-sonnet-4-5",
   "kullanim": {
-    "giris_token": 1537,
-    "cikis_token": 782,
-    "tahmini_maliyet_usd": 0.016341
+    "giris_token": 1488,
+    "cikis_token": 752,
+    "tahmini_maliyet_usd": 0.015744
   },
   "yorum": {
-    "haftanin_ozeti": "900 IT ilanı üzerinden yapılan analizde Python'un 301 ilanla baskın pozisyonda olduğu, ABD maaşlarının tüm rollerde UK'dan %30-157 daha yüksek seyrettiği görülüyor. Skill çıkarım oranı %43.7 seviyesinde kalırken, Machine Learning ve AWS gibi ileri düzey beceriler ortalama maaşları yukarı çekiyor.",
+    "haftanin_ozeti": "750 IT ilanının 284'ünde skill bilgisi tespit edildi (%37.9). Python açık ara en çok aranan skill (198 ilan) olurken, veri odaklı roller (analyst + scientist) toplam 550 ilanla pazar ağırlığını oluşturdu. ABD maaşları UK'ye göre ortalama 2 kat yüksek seyrediyor.",
     "yukselen_skiller": [
       {
-        "skill": "Machine Learning",
-        "yorum": "55 ilanda geçiyor ve 102,742 USD ortalama maaşla Python'dan %5 daha yüksek gelir sağlıyor."
-      },
-      {
-        "skill": "FastAPI",
-        "yorum": "15 ilanda yer alıyor ve modern Python backend geliştirmede Django'ya alternatif olarak öne çıkıyor."
-      },
-      {
         "skill": "LLM",
-        "yorum": "8 ilanda görünmesi, yapay zeka uzmanlığına olan talebin somut göstergesi."
+        "yorum": "Sadece 6 ilanda tespit edilmesine rağmen ortalama 122,215$ maaş ile en yüksek ücretli skill konumunda."
+      },
+      {
+        "skill": "Python",
+        "yorum": "198 ilanda yer alarak hakimiyetini sürdürüyor ve 113,295$ ortalama maaş sunuyor."
+      },
+      {
+        "skill": "Machine Learning",
+        "yorum": "48 ilanda görünüyor ve 112,344$ ortalama maaşla yüksek değer sağlıyor."
       }
     ],
     "maas_icgorüleri": [
-      "ABD'de data scientist rolü 133,471 USD ortalama ile en yüksek maaşı alırken, UK'da aynı rol 51,822 GBP ile %157 daha düşük seyrediyor.",
-      "Python developer maaşları UK'da 80,996 GBP, ABD'de 114,959 USD seviyesinde ve her iki pazarda da data analyst ve data scientist rollerinden belirgin şekilde yüksek.",
-      "Excel ve Power BI gibi temel analiz araçları 66-68K USD bandında kalırken, AWS ve ETL becerileri 100K USD üzeri ortalama maaşla ödüllendiriliyor."
+      "ABD data scientist ortalaması (132,070$) UK'den (60,394$) %119 daha yüksek, coğrafi lokasyon maaş belirleyici birinci faktör.",
+      "Excel (68,972$) ve Power BI (68,188$) gibi BI araçları Python (113,295$) ve AWS (113,175$) gibi teknik skilllerden belirgin şekilde düşük ücretlendirilmiş.",
+      "Python developer rolünde ABD ortalaması 115,456$ olup data scientist (132,070$) ile data analyst (105,299$) arasında konumlanıyor."
     ],
-    "stratejik_icgoru": "Python tek başına 301 ilanda geçerken, Machine Learning kombinasyonu sadece 55 ilanda yer alıyor ancak %5 maaş primi sağlıyor. Bu, piyasada temel Python bilgisinin metalaştığını, fark yaratmanın spesifik uzmanlık alanları (ML, cloud, modern framework) gerektirdiğini gösteriyor. Alım yapan şirketler için: genel Python yetenekten ziyade AWS/ML gibi derinlemesine beceri setlerine odaklanmak daha stratejik.",
-    "veri_kalitesi_notu": "Almanya verisi maaş analizine dahil edilememiş (%7 maaş bilgisi). Skill çıkarım oranı %43.7 ile orta seviyede, gerçek skill talebi daha yüksek olabilir. Analizler UK ve ABD ağırlıklı, Avrupa pazarı eksik temsil ediliyor."
+    "stratejik_icgoru": "LLM skillinin sadece 6 ilanda görülmesine rağmen en yüksek ortalama maaşı (122,215$) sunması, generative AI alanında uzmanlaşmış insan kaynağı kıtlığına işaret ediyor. Bu niche alanda pozisyon alan profesyoneller premium fiyatlandırma gücüne sahip. Şirketler henüz bu skill için yaygın ilan açmıyor ama açtıklarında agresif ücretlendirmeye hazırlar.",
+    "veri_kalitesi_notu": "Skill tespiti %37.9 oranında gerçekleşti, bu da ilanların %62'sinde yapılandırılmış skill verisi çıkarılamadığı anlamına geliyor. Almanya'da maaş bilgisi sadece %7 oranında mevcut olduğundan maaş analizleri yalnızca UK ve ABD'ye dayanıyor."
   }
 }

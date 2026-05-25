@@ -165,8 +165,8 @@ def html_dipnot(yorum: dict, ai: dict) -> str:
 
 # =============== ANA HTML KOMPOZISYON ===============
 
-def html_olustur(ai: dict, analiz: dict, grafik1_b64: str, grafik2_b64: str) -> str:
-    """Tum parcalari birlestirip son HTML'i uret."""
+def html_olustur(ai: dict, analiz: dict, grafik1_b64: str, grafik2_b64: str, grafik3_b64: str) -> str:
+    """Tum parcalari birlestirip son HTML'i uret. v2.0: 3 grafik."""
     yorum = ai.get("yorum", {})
     
     icerik = (
@@ -174,8 +174,9 @@ def html_olustur(ai: dict, analiz: dict, grafik1_b64: str, grafik2_b64: str) -> 
         html_yonetici_ozet(yorum) +
         html_yukselen_skiller(yorum) +
         html_grafik("En Cok Aranan 10 Skill", grafik1_b64, "Top skiller bar chart") +
+        html_grafik("Meslek Grubu Bazinda Ilan Sayisi", grafik2_b64, "Rol dagilimi") +
         html_maas_icgorüleri(yorum) +
-        html_grafik("Rol Bazinda Maas Karsilastirma", grafik2_b64, "Maas karsilastirma chart") +
+        html_grafik("Ulke x Meslek Grubu Maas Heatmap", grafik3_b64, "Maas heatmap") +
         html_stratejik_icgoru(yorum) +
         html_dipnot(yorum, ai)
     )
@@ -214,17 +215,20 @@ def main():
     with open(analiz_dosyasi, "r", encoding="utf-8") as f:
         analiz = json.load(f)
     
-    # 3. Grafikleri yukle (base64'e cevir)
+    # 3. Grafikleri yukle (base64'e cevir) - v2.0: 3 grafik
     g1_dosyasi = en_son_dosya("data/chart_skiller_*.png")
-    g2_dosyasi = en_son_dosya("data/chart_maaslar_*.png")
-    print(f"Grafik 1:  {g1_dosyasi}")
-    print(f"Grafik 2:  {g2_dosyasi}")
+    g2_dosyasi = en_son_dosya("data/chart_roller_*.png")
+    g3_dosyasi = en_son_dosya("data/chart_maaslar_*.png")
+    print(f"Grafik 1 (skill):  {g1_dosyasi}")
+    print(f"Grafik 2 (rol):    {g2_dosyasi}")
+    print(f"Grafik 3 (maas):   {g3_dosyasi}")
     
     g1_b64 = goruntu_base64(g1_dosyasi)
     g2_b64 = goruntu_base64(g2_dosyasi)
+    g3_b64 = goruntu_base64(g3_dosyasi)
     
     # 4. HTML olustur
-    html = html_olustur(ai, analiz, g1_b64, g2_b64)
+    html = html_olustur(ai, analiz, g1_b64, g2_b64, g3_b64)
     
     # 5. Dosyaya kaydet
     cikti_yolu = f"data/rapor_{date.today()}.html"

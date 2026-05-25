@@ -1,0 +1,262 @@
+{
+  "cekim_tarihi": "2026-05-25",
+  "toplam_ilan": 3498,
+  "skill_bulunan_ilan": 1901,
+  "skill_bulunma_orani_yuzde": 54.3,
+  "ulke_dagilimi": {
+    "ABD": 700,
+    "UK": 700,
+    "Hindistan": 700,
+    "Almanya": 699,
+    "Polonya": 699
+  },
+  "rol_dagilimi": {
+    "Veri Muhendisi": 500,
+    "Bulut Muhendisi": 500,
+    "Siber Guvenlik": 500,
+    "DevOps Muhendisi": 500,
+    "Veri/Is Analisti": 500,
+    "Makine Ogrenmesi Muhendisi": 499,
+    "Yazilim Muhendisi": 499
+  },
+  "en_cok_aranan_skiller": {
+    "Machine Learning": 592,
+    "Azure": 381,
+    "AWS": 331,
+    "Python": 311,
+    "CI/CD": 252,
+    "SQL": 228,
+    "Kubernetes": 188,
+    "Agile": 175,
+    "GCP": 164,
+    "Terraform": 142,
+    "Docker": 109,
+    "Linux": 104,
+    "ETL": 101,
+    "Java": 91,
+    "Databricks": 84,
+    "JavaScript": 74,
+    "LLM": 73,
+    "GitHub": 65,
+    "Spark": 62,
+    "Azure DevOps": 59
+  },
+  "maas_istatistikleri": {
+    "UK_Makine Ogrenmesi Muhendisi": {
+      "adet": 100,
+      "min": 33409,
+      "ort": 71774,
+      "maks": 188500
+    },
+    "UK_Veri Muhendisi": {
+      "adet": 100,
+      "min": 10000,
+      "ort": 71896,
+      "maks": 201500
+    },
+    "UK_Bulut Muhendisi": {
+      "adet": 100,
+      "min": 23400,
+      "ort": 71500,
+      "maks": 160550
+    },
+    "UK_Siber Guvenlik": {
+      "adet": 100,
+      "min": 30000,
+      "ort": 48692,
+      "maks": 169000
+    },
+    "UK_DevOps Muhendisi": {
+      "adet": 100,
+      "min": 30000,
+      "ort": 75038,
+      "maks": 180700
+    },
+    "UK_Veri/Is Analisti": {
+      "adet": 100,
+      "min": 20800,
+      "ort": 46762,
+      "maks": 113750
+    },
+    "UK_Yazilim Muhendisi": {
+      "adet": 100,
+      "min": 25,
+      "ort": 73896,
+      "maks": 187850
+    },
+    "ABD_Makine Ogrenmesi Muhendisi": {
+      "adet": 100,
+      "min": 71315,
+      "ort": 105285,
+      "maks": 237124
+    },
+    "ABD_Veri Muhendisi": {
+      "adet": 100,
+      "min": 66327,
+      "ort": 130026,
+      "maks": 265380
+    },
+    "ABD_Bulut Muhendisi": {
+      "adet": 100,
+      "min": 55713,
+      "ort": 143919,
+      "maks": 255773
+    },
+    "ABD_Siber Guvenlik": {
+      "adet": 100,
+      "min": 60675,
+      "ort": 132979,
+      "maks": 264597
+    },
+    "ABD_DevOps Muhendisi": {
+      "adet": 100,
+      "min": 51278,
+      "ort": 118868,
+      "maks": 201076
+    },
+    "ABD_Veri/Is Analisti": {
+      "adet": 100,
+      "min": 38620,
+      "ort": 91910,
+      "maks": 179014
+    },
+    "ABD_Yazilim Muhendisi": {
+      "adet": 100,
+      "min": 150380,
+      "ort": 182224,
+      "maks": 254960
+    },
+    "Almanya_Makine Ogrenmesi Muhendisi": {
+      "adet": 9,
+      "min": 140,
+      "ort": 73182,
+      "maks": 145000
+    },
+    "Almanya_Veri Muhendisi": {
+      "adet": 6,
+      "min": 38838,
+      "ort": 57297,
+      "maks": 80000
+    },
+    "Almanya_Bulut Muhendisi": {
+      "adet": 2,
+      "min": 65000,
+      "ort": 77500,
+      "maks": 90000
+    },
+    "Almanya_Siber Guvenlik": {
+      "adet": 12,
+      "min": 92,
+      "ort": 70641,
+      "maks": 100500
+    },
+    "Almanya_DevOps Muhendisi": {
+      "adet": 6,
+      "min": 56000,
+      "ort": 64417,
+      "maks": 90000
+    },
+    "Almanya_Veri/Is Analisti": {
+      "adet": 5,
+      "min": 3,
+      "ort": 60801,
+      "maks": 117500
+    },
+    "Almanya_Yazilim Muhendisi": {
+      "adet": 38,
+      "min": 78,
+      "ort": 81449,
+      "maks": 110000
+    },
+    "Polonya_Makine Ogrenmesi Muhendisi": {
+      "adet": 40,
+      "min": 1830,
+      "ort": 321729,
+      "maks": 1680000
+    },
+    "Polonya_Veri Muhendisi": {
+      "adet": 80,
+      "min": 672,
+      "ort": 128929,
+      "maks": 510000
+    },
+    "Polonya_Bulut Muhendisi": {
+      "adet": 55,
+      "min": 498,
+      "ort": 214182,
+      "maks": 491400
+    },
+    "Polonya_Siber Guvenlik": {
+      "adet": 65,
+      "min": 1860,
+      "ort": 255795,
+      "maks": 504000
+    },
+    "Polonya_DevOps Muhendisi": {
+      "adet": 75,
+      "min": 360,
+      "ort": 160793,
+      "maks": 588000
+    },
+    "Polonya_Veri/Is Analisti": {
+      "adet": 63,
+      "min": 1260,
+      "ort": 223322,
+      "maks": 372960
+    },
+    "Polonya_Yazilim Muhendisi": {
+      "adet": 68,
+      "min": 678,
+      "ort": 188522,
+      "maks": 570000
+    }
+  },
+  "skill_maas_iliskisi": {
+    "Machine Learning": {
+      "adet": 320,
+      "ort_maas": 124324
+    },
+    "Azure": {
+      "adet": 223,
+      "ort_maas": 126549
+    },
+    "Python": {
+      "adet": 200,
+      "ort_maas": 146031
+    },
+    "AWS": {
+      "adet": 188,
+      "ort_maas": 127528
+    },
+    "Agile": {
+      "adet": 163,
+      "ort_maas": 150071
+    },
+    "SQL": {
+      "adet": 162,
+      "ort_maas": 120365
+    },
+    "CI/CD": {
+      "adet": 154,
+      "ort_maas": 126654
+    },
+    "Kubernetes": {
+      "adet": 113,
+      "ort_maas": 138946
+    },
+    "GCP": {
+      "adet": 94,
+      "ort_maas": 121413
+    },
+    "Terraform": {
+      "adet": 92,
+      "ort_maas": 115187
+    }
+  },
+  "notlar": [
+    "Maas analizi 4 ulkeyi kapsar: UK (GBP), ABD (USD), Almanya (EUR), Polonya (PLN). Para birimleri farkli, dogrudan karsilastirma yapmadan once normalize edilmelidir.",
+    "Hindistan (INR) maas analizinden haric tutuldu cunku INR olcegi diger 4 ulkeden cok farkli.",
+    "Almanya'da maas bilgisi orani diger ulkelerden dusuk (kulturel sebep, isverenler ilanlarda maas paylasmaz), Almanya istatistikleri daha kucuk ornek uzerinden.",
+    "Skill cikarimi 54.3% oraninda basarili (155+ skill icin regex tabanli)."
+  ]
+}

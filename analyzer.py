@@ -67,10 +67,10 @@ def ulke_dagilimi(df: pd.DataFrame) -> None:
 def arama_dagilimi(df: pd.DataFrame) -> None:
     """Hangi rolde kac ilan var?"""
     print("=" * 70)
-    print("ROL BAZINDA ILAN DAGILIMI")
+    print("ANA GRUP BAZINDA ILAN DAGILIMI")
     print("=" * 70)
     
-    sayim = df["arama_anahtari"].value_counts()
+    sayim = df["ana_grup"].value_counts()
     print(sayim.to_string())
     print()
 
@@ -81,7 +81,7 @@ def ulke_x_rol_caprazi(df: pd.DataFrame) -> None:
     print("ULKE x ROL CAPRAZ TABLOSU")
     print("=" * 70)
     
-    capraz = pd.crosstab(df["ulke"], df["arama_anahtari"])
+    capraz = pd.crosstab(df["ulke"], df["ana_grup"])
     print(capraz.to_string())
     print()
 
@@ -147,9 +147,11 @@ def maas_bilgisi_oran(df: pd.DataFrame) -> None:
 # Her skill: (gosterilecek_isim, regex_pattern_listesi)
 # regex pattern'lerinde \b = "kelime siniri" (tam kelime eslesmesi)
 SKILL_LISTESI = {
-    # Programlama Dilleri
+    # =========================================================
+    # PROGRAMLAMA DILLERI
+    # =========================================================
     "Python":       [r"\bpython\b"],
-    "Java":         [r"\bjava\b(?!script)"],   # Java ama JavaScript degil
+    "Java":         [r"\bjava\b(?!script)"],
     "JavaScript":   [r"\bjavascript\b", r"\bjs\b"],
     "TypeScript":   [r"\btypescript\b", r"\bts\b"],
     "C++":          [r"\bc\+\+"],
@@ -160,66 +162,194 @@ SKILL_LISTESI = {
     "PHP":          [r"\bphp\b"],
     "Scala":        [r"\bscala\b"],
     "R":            [r"\br language\b", r"\br programming\b"],
-    
-    # Veri & Analitik
+    "Bash":         [r"\bbash\b"],
+    "PowerShell":   [r"\bpowershell\b", r"\bpower shell\b"],
+
+    # =========================================================
+    # VERI & ANALITIK
+    # =========================================================
     "SQL":          [r"\bsql\b"],
     "PostgreSQL":   [r"\bpostgresql\b", r"\bpostgres\b"],
     "MySQL":        [r"\bmysql\b"],
     "MongoDB":      [r"\bmongodb\b", r"\bmongo\b"],
     "Redis":        [r"\bredis\b"],
     "Elasticsearch":[r"\belasticsearch\b", r"\belastic search\b"],
+    "Cassandra":    [r"\bcassandra\b"],
+    "DynamoDB":     [r"\bdynamodb\b", r"\bdynamo db\b"],
     "Snowflake":    [r"\bsnowflake\b"],
     "BigQuery":     [r"\bbigquery\b", r"\bbig query\b"],
+    "Redshift":     [r"\bredshift\b", r"\bamazon redshift\b"],
+    "Databricks":   [r"\bdatabricks\b"],
+    "Delta Lake":   [r"\bdelta lake\b"],
+    "Iceberg":      [r"\bapache iceberg\b", r"\biceberg\b"],
+    "Trino":        [r"\btrino\b", r"\bpresto db?\b"],
     "Tableau":      [r"\btableau\b"],
     "Power BI":     [r"\bpower bi\b", r"\bpowerbi\b"],
     "Looker":       [r"\blooker\b"],
+    "Metabase":     [r"\bmetabase\b"],
+    "DAX":          [r"\bdax formula\b", r"\bdax measure\b"],
     "Excel":        [r"\bexcel\b", r"\bms excel\b"],
-    
+
+    # =========================================================
     # ML & AI
+    # =========================================================
     "Machine Learning":  [r"\bmachine learning\b", r"\bml\b"],
     "Deep Learning":     [r"\bdeep learning\b"],
     "TensorFlow":        [r"\btensorflow\b", r"\btensor flow\b"],
     "PyTorch":           [r"\bpytorch\b", r"\bpy torch\b"],
     "Scikit-learn":      [r"\bscikit-learn\b", r"\bsklearn\b"],
-    "NLP":               [r"\bnlp\b", r"\bnatural language\b"],
+    "XGBoost":           [r"\bxgboost\b"],
+    "LightGBM":          [r"\blightgbm\b", r"\blight gbm\b"],
+    "NLP":               [r"\bnlp\b", r"\bnatural language processing\b"],
+    "Computer Vision":   [r"\bcomputer vision\b"],
     "LLM":               [r"\bllm\b", r"\blarge language model\b"],
-    
-    # Cloud & DevOps
-    "AWS":          [r"\baws\b", r"\bamazon web services\b"],
-    "Azure":        [r"\bazure\b"],
-    "GCP":          [r"\bgcp\b", r"\bgoogle cloud\b"],
-    "Docker":       [r"\bdocker\b"],
-    "Kubernetes":   [r"\bkubernetes\b", r"\bk8s\b"],
-    "Terraform":    [r"\bterraform\b"],
-    "CI/CD":        [r"\bci/cd\b", r"\bcicd\b"],
-    "Git":          [r"\bgit\b(?!hub)"],   # Git ama GitHub degil
-    "GitHub":       [r"\bgithub\b"],
-    "Linux":        [r"\blinux\b"],
-    "Jenkins":      [r"\bjenkins\b"],
-    
-    # Frameworks
-    "Django":       [r"\bdjango\b"],
-    "Flask":        [r"\bflask\b"],
-    "FastAPI":      [r"\bfastapi\b", r"\bfast api\b"],
-    "React":        [r"\breact\.?js\b", r"\breact\b"],
-    "Node.js":      [r"\bnode\.?js\b", r"\bnodejs\b"],
-    "Spring":       [r"\bspring boot\b", r"\bspring framework\b"],
-    
-    # Veri muhendisligi
-    "Spark":        [r"\bspark\b", r"\bapache spark\b"],
-    "Airflow":      [r"\bairflow\b", r"\bapache airflow\b"],
-    "Kafka":        [r"\bkafka\b", r"\bapache kafka\b"],
-    "Hadoop":       [r"\bhadoop\b"],
-    "ETL":          [r"\betl\b", r"\bextract.{0,5}transform.{0,5}load\b"],
-    "dbt":          [r"\bdbt\b"],
-    
-    # Genel beceri
-    "Agile":        [r"\bagile\b"],
-    "Scrum":        [r"\bscrum\b"],
-    "REST API":     [r"\brest api\b", r"\brestful\b"],
-    "GraphQL":      [r"\bgraphql\b"],
-    "Pandas":       [r"\bpandas\b"],
-    "NumPy":        [r"\bnumpy\b", r"\bnum py\b"],
+    "Generative AI":     [r"\bgenerative ai\b", r"\bgen ai\b", r"\bgenai\b"],
+    "Prompt Engineering":[r"\bprompt engineering\b"],
+    "Hugging Face":      [r"\bhugging face\b", r"\bhuggingface\b"],
+    "LangChain":         [r"\blangchain\b"],
+    "RAG":               [r"\bretrieval.augmented generation\b", r"\brag pipeline\b"],
+    "OpenAI":            [r"\bopenai\b", r"\bopenai api\b"],
+    "Vector Database":   [r"\bvector database\b", r"\bvector db\b"],
+    "Pinecone":          [r"\bpinecone\b"],
+    "Weaviate":          [r"\bweaviate\b"],
+    "MLflow":            [r"\bmlflow\b"],
+    "Kubeflow":          [r"\bkubeflow\b"],
+    "Weights & Biases":  [r"\bweights & biases\b", r"\bwandb\b"],
+
+    # =========================================================
+    # CLOUD - AWS
+    # =========================================================
+    "AWS":             [r"\baws\b", r"\bamazon web services\b"],
+    "AWS Lambda":      [r"\baws lambda\b", r"\blambda function\b"],
+    "AWS S3":          [r"\baws s3\b", r"\bs3 bucket\b", r"\bamazon s3\b"],
+    "AWS EC2":         [r"\baws ec2\b", r"\bec2 instance\b"],
+    "AWS EKS":         [r"\baws eks\b", r"\beks cluster\b"],
+    "AWS RDS":         [r"\baws rds\b", r"\brds database\b"],
+    "AWS Glue":        [r"\baws glue\b", r"\bglue etl\b"],
+    "AWS SageMaker":   [r"\bsagemaker\b", r"\baws sagemaker\b"],
+
+    # =========================================================
+    # CLOUD - AZURE
+    # =========================================================
+    "Azure":              [r"\bazure\b"],
+    "Azure Functions":    [r"\bazure functions?\b"],
+    "Azure DevOps":       [r"\bazure devops\b"],
+    "Azure Data Factory": [r"\bazure data factory\b", r"\badf pipeline\b"],
+    "Azure AKS":          [r"\bazure aks\b", r"\baks cluster\b"],
+    "Azure Synapse":      [r"\bsynapse analytics?\b", r"\bazure synapse\b"],
+
+    # =========================================================
+    # CLOUD - GCP
+    # =========================================================
+    "GCP":              [r"\bgcp\b", r"\bgoogle cloud\b"],
+    "GCP Dataflow":     [r"\bgcp dataflow\b", r"\bdataflow pipeline\b"],
+    "GCP Vertex AI":    [r"\bvertex ai\b"],
+    "GCP Cloud Run":    [r"\bcloud run\b"],
+
+    # =========================================================
+    # DEVOPS & CI/CD
+    # =========================================================
+    "Docker":         [r"\bdocker\b"],
+    "Kubernetes":     [r"\bkubernetes\b", r"\bk8s\b"],
+    "Terraform":      [r"\bterraform\b"],
+    "Ansible":        [r"\bansible\b"],
+    "Helm":           [r"\bhelm chart\b", r"\bhelm\b"],
+    "Puppet":         [r"\bpuppet\b"],
+    "Chef":           [r"\bchef config\b"],
+    "CI/CD":          [r"\bci/cd\b", r"\bcicd\b"],
+    "GitLab CI":      [r"\bgitlab ci\b", r"\bgitlab cicd\b"],
+    "GitHub Actions": [r"\bgithub actions?\b"],
+    "CircleCI":       [r"\bcircleci\b", r"\bcircle ci\b"],
+    "ArgoCD":         [r"\bargocd\b", r"\bargo cd\b"],
+    "Jenkins":        [r"\bjenkins\b"],
+    "Git":            [r"\bgit\b(?!hub|lab)"],
+    "GitHub":         [r"\bgithub\b"],
+
+    # =========================================================
+    # OBSERVABILITY
+    # =========================================================
+    "Prometheus":     [r"\bprometheus\b"],
+    "Grafana":        [r"\bgrafana\b"],
+    "Datadog":        [r"\bdatadog\b"],
+    "New Relic":      [r"\bnew relic\b", r"\bnewrelic\b"],
+    "ELK Stack":      [r"\belk stack\b", r"\belasticsearch logstash\b"],
+    "OpenTelemetry":  [r"\bopentelemetry\b", r"\botel framework\b"],
+
+    # =========================================================
+    # CYBERSECURITY
+    # =========================================================
+    "SIEM":                [r"\bsiem\b", r"\bsecurity information.event\b"],
+    "SOC":                 [r"\bsoc analyst\b", r"\bsecurity operations center\b"],
+    "IAM":                 [r"\biam\b", r"\bidentity.access management\b"],
+    "Zero Trust":          [r"\bzero trust\b"],
+    "OWASP":               [r"\bowasp\b"],
+    "Penetration Testing": [r"\bpenetration test\b", r"\bpentest\b", r"\bpen-test\b"],
+    "Splunk":              [r"\bsplunk\b"],
+    "CrowdStrike":         [r"\bcrowdstrike\b"],
+    "Wireshark":           [r"\bwireshark\b"],
+    "Burp Suite":          [r"\bburp suite\b", r"\bburpsuite\b"],
+    "NIST":                [r"\bnist framework\b", r"\bnist 800\b"],
+    "ISO 27001":           [r"\biso 27001\b", r"\biso27001\b"],
+    "SOC 2":               [r"\bsoc 2\b", r"\bsoc-2\b"],
+    "GDPR":                [r"\bgdpr\b"],
+    "Vulnerability":       [r"\bvulnerability assessment\b", r"\bvuln scan\b"],
+    "Threat Intelligence": [r"\bthreat intelligence\b", r"\bthreat intel\b"],
+
+    # =========================================================
+    # FRONTEND
+    # =========================================================
+    "React":          [r"\breact\.?js\b", r"\breact\b"],
+    "Vue.js":         [r"\bvue\.?js\b"],
+    "Next.js":        [r"\bnext\.?js\b"],
+    "Svelte":         [r"\bsvelte\b"],
+    "Angular":        [r"\bangular\b"],
+    "Tailwind":       [r"\btailwind\b", r"\btailwind css\b"],
+
+    # =========================================================
+    # BACKEND
+    # =========================================================
+    "Node.js":        [r"\bnode\.?js\b", r"\bnodejs\b"],
+    "NestJS":         [r"\bnest\.?js\b"],
+    "Express":        [r"\bexpress\.?js\b"],
+    "Django":         [r"\bdjango\b"],
+    "Flask":          [r"\bflask\b"],
+    "FastAPI":        [r"\bfastapi\b", r"\bfast api\b"],
+    "Spring":         [r"\bspring boot\b", r"\bspring framework\b"],
+
+    # =========================================================
+    # VERI MUHENDISLIGI
+    # =========================================================
+    "Spark":          [r"\bspark\b", r"\bapache spark\b"],
+    "Airflow":        [r"\bairflow\b", r"\bapache airflow\b"],
+    "Kafka":          [r"\bkafka\b", r"\bapache kafka\b"],
+    "Hadoop":         [r"\bhadoop\b"],
+    "ETL":            [r"\betl\b", r"\bextract.{0,5}transform.{0,5}load\b"],
+    "dbt":            [r"\bdbt\b"],
+    "Fivetran":       [r"\bfivetran\b"],
+    "Airbyte":        [r"\bairbyte\b"],
+    "Apache Beam":    [r"\bapache beam\b"],
+    "RabbitMQ":       [r"\brabbitmq\b", r"\brabbit mq\b"],
+    "Streaming":      [r"\bdata streaming\b", r"\bstream processing\b"],
+
+    # =========================================================
+    # API & MIMARI
+    # =========================================================
+    "REST API":       [r"\brest api\b", r"\brestful\b"],
+    "GraphQL":        [r"\bgraphql\b"],
+    "gRPC":           [r"\bgrpc\b"],
+    "Microservices":  [r"\bmicroservices?\b", r"\bmicro service\b"],
+    "Event-Driven":   [r"\bevent.driven\b", r"\bevent driven architecture\b"],
+
+    # =========================================================
+    # GENEL & DIGER
+    # =========================================================
+    "Linux":          [r"\blinux\b"],
+    "Agile":          [r"\bagile\b"],
+    "Scrum":          [r"\bscrum\b"],
+    "Pandas":         [r"\bpandas\b"],
+    "NumPy":          [r"\bnumpy\b"],
+    "Load Balancing": [r"\bload balanc\b", r"\bnginx\b", r"\bhaproxy\b"],
+    "Networking":     [r"\btcp/ip\b", r"\bnetworking protocols?\b"],
 }
 
 
@@ -318,13 +448,13 @@ def ulke_bazinda_top_skiller(df: pd.DataFrame, top_n: int = 5) -> None:
 
 
 def rol_bazinda_top_skiller(df: pd.DataFrame, top_n: int = 5) -> None:
-    """Her rol icin en cok aranan skill'ler."""
+    """Her ana grup icin en cok aranan skill'ler."""
     print("=" * 70)
-    print(f"HER ROLDE EN COK ARANAN {top_n} SKILL")
+    print(f"HER ANA GRUPTA EN COK ARANAN {top_n} SKILL")
     print("=" * 70)
     
-    for rol in df["arama_anahtari"].unique():
-        rol_df = df[df["arama_anahtari"] == rol]
+    for rol in df["ana_grup"].unique():
+        rol_df = df[df["ana_grup"] == rol]
         
         tum_skiller = []
         for skill_listesi in rol_df["skiller"]:
@@ -347,21 +477,22 @@ def maas_istatistikleri(df: pd.DataFrame) -> dict:
     print("=" * 70)
     print("MAAS ISTATISTIKLERI")
     print("=" * 70)
-    print("(Not: Almanya %7 oranla raporluyor, sadece UK ve ABD analiz edildi)")
+    print("(Not: 4 ulke - UK/GBP, ABD/USD, Almanya/EUR, Polonya/PLN. Hindistan/INR olcek farki nedeniyle haric.)")    
     print()
     
     sonuc = {}
     
     # Maasli ilanlar (UK ve ABD)
-    maasli = df[df["maas_min"].notna() & df["ulke"].isin(["UK", "ABD"])].copy()
+    # Hindistan INR olcegi farkli, maas analizinden hariç
+    maasli = df[df["maas_min"].notna() & df["ulke"].isin(["UK", "ABD", "Almanya", "Polonya"])].copy()
     maasli["maas_ortalama"] = (maasli["maas_min"] + maasli["maas_max"]) / 2
     
     print(f"{'Ulke':<8} {'Rol':<20} {'Adet':>5} {'Min':>10} {'Ort':>10} {'Maks':>10}")
     print("-" * 70)
     
-    for ulke in ["UK", "ABD"]:
-        for rol in df["arama_anahtari"].unique():
-            alt = maasli[(maasli["ulke"] == ulke) & (maasli["arama_anahtari"] == rol)]
+    for ulke in ["UK", "ABD", "Almanya", "Polonya"]:
+        for rol in df["ana_grup"].unique():
+            alt = maasli[(maasli["ulke"] == ulke) & (maasli["ana_grup"] == rol)]
             if len(alt) == 0:
                 continue
             min_m = alt["maas_ortalama"].min()
@@ -385,7 +516,7 @@ def skill_maas_iliskisi(df: pd.DataFrame, top_n: int = 10) -> dict:
     print(f"SKILL BAZINDA ORTALAMA MAAS (UK + ABD, EN SIK {top_n} SKILL)")
     print("=" * 70)
     
-    maasli = df[df["maas_min"].notna() & df["ulke"].isin(["UK", "ABD"])].copy()
+    maasli = df[df["maas_min"].notna() & df["ulke"].isin(["UK", "ABD", "Almanya", "Polonya"])].copy()
     maasli["maas_ortalama"] = (maasli["maas_min"] + maasli["maas_max"]) / 2
     
     # En sik gecen skiller
@@ -419,7 +550,7 @@ def json_ozet_uret(df: pd.DataFrame, maas_stats: dict, skill_maas: dict) -> None
     top_skiller = pd.Series(tum_skiller).value_counts().head(20).to_dict()
     
     # Ulke + rol carpaz
-    capraz = pd.crosstab(df["ulke"], df["arama_anahtari"]).to_dict()
+    capraz = pd.crosstab(df["ulke"], df["ana_grup"]).to_dict()
     
     ozet = {
         "cekim_tarihi": str(df["cekim_tarihi"].iloc[0]),
@@ -427,13 +558,15 @@ def json_ozet_uret(df: pd.DataFrame, maas_stats: dict, skill_maas: dict) -> None
         "skill_bulunan_ilan": int((df["skill_sayisi"] > 0).sum()),
         "skill_bulunma_orani_yuzde": round((df["skill_sayisi"] > 0).sum() * 100 / len(df), 1),
         "ulke_dagilimi": df["ulke"].value_counts().to_dict(),
-        "rol_dagilimi": df["arama_anahtari"].value_counts().to_dict(),
+        "rol_dagilimi": df["ana_grup"].value_counts().to_dict(),
         "en_cok_aranan_skiller": top_skiller,
         "maas_istatistikleri": maas_stats,
         "skill_maas_iliskisi": skill_maas,
         "notlar": [
-            "Almanya'da maas bilgisi %7 oraninda mevcut, maas analizi yalniz UK ve ABD",
-            f"Skill cikarimi {round((df['skill_sayisi'] > 0).sum() * 100 / len(df), 1)}% oraninda basarili (baslik + ozet aciklamadan)"
+            "Maas analizi 4 ulkeyi kapsar: UK (GBP), ABD (USD), Almanya (EUR), Polonya (PLN). Para birimleri farkli, dogrudan karsilastirma yapmadan once normalize edilmelidir.",
+            "Hindistan (INR) maas analizinden haric tutuldu cunku INR olcegi diger 4 ulkeden cok farkli.",
+            "Almanya'da maas bilgisi orani diger ulkelerden dusuk (kulturel sebep, isverenler ilanlarda maas paylasmaz), Almanya istatistikleri daha kucuk ornek uzerinden.",
+            f"Skill cikarimi {round((df['skill_sayisi'] > 0).sum() * 100 / len(df), 1)}% oraninda basarili (155+ skill icin regex tabanli)."
         ]
     }
     
@@ -456,6 +589,34 @@ def main():
     
     # Yukle
     df = veriyi_yukle(csv_yolu)
+
+    # ==========================================================
+    # VERI TEMIZLEME 1: Eski ilanlari filtrele (son 6 ay)
+    # Pazar analizini guncel tutmak icin kritik
+    # ==========================================================
+    from datetime import datetime, timedelta
+    
+    ham_sayi = len(df)
+    bugun = datetime.now()
+    alt_sinir = (bugun - timedelta(days=180)).strftime("%Y-%m-%d")
+    
+    # ilan_tarihi string formatinda, direkt karsilastirilabilir (YYYY-MM-DD)
+    df = df[df["ilan_tarihi"] >= alt_sinir].reset_index(drop=True)
+    
+    eski_atildi = ham_sayi - len(df)
+    print(f"VERI TEMIZLEME 1: {eski_atildi} eski ilan (>180 gun) cikarildi -> {len(df)} ilan kaldi")
+    print(f"  Tarih filtresi: {alt_sinir} ve sonrasi\n")
+    
+    # ==========================================================
+    # VERI TEMIZLEME: Cift ilanlari kaldir
+    # Ayni ilan birden fazla aramada yakalanmis olabilir
+    # (ornek: bir Senior Cloud Engineer ilani hem 'cloud engineer'
+    # hem 'cloud architect' aramasinda gelebilir)
+    # ==========================================================
+    ham_sayi = len(df)
+    df = df.drop_duplicates(subset=["ilan_url"], keep="first").reset_index(drop=True)
+    temiz_sayi = len(df)
+    print(f"VERI TEMIZLEME: {ham_sayi - temiz_sayi} cift ilan kaldirildi ({ham_sayi} -> {temiz_sayi})\n")
     
     # Analizleri sirayla calistir
     temel_ozet(df)

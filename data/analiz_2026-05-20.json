@@ -1,64 +1,52 @@
 {
   "cekim_tarihi": "2026-05-20",
-  "toplam_ilan": 900,
-  "skill_bulunan_ilan": 393,
-  "skill_bulunma_orani_yuzde": 43.7,
+  "toplam_ilan": 750,
+  "skill_bulunan_ilan": 284,
+  "skill_bulunma_orani_yuzde": 37.9,
   "ulke_dagilimi": {
-    "UK": 300,
     "Almanya": 300,
-    "ABD": 300
+    "ABD": 300,
+    "UK": 150
   },
   "rol_dagilimi": {
-    "python developer": 300,
     "data analyst": 300,
-    "data scientist": 300
+    "data scientist": 250,
+    "python developer": 200
   },
   "en_cok_aranan_skiller": {
-    "Python": 301,
-    "Machine Learning": 55,
-    "SQL": 31,
-    "AWS": 23,
-    "Docker": 21,
-    "Django": 19,
+    "Python": 198,
+    "Machine Learning": 48,
+    "SQL": 28,
     "Power BI": 19,
-    "Linux": 17,
-    "Excel": 16,
-    "Agile": 15,
-    "ETL": 15,
-    "FastAPI": 15,
-    "JavaScript": 15,
-    "React": 14,
-    "PostgreSQL": 12,
-    "Java": 11,
-    "REST API": 9,
-    "Azure": 8,
-    "TypeScript": 8,
-    "LLM": 8
+    "Linux": 16,
+    "Excel": 14,
+    "ETL": 14,
+    "Docker": 14,
+    "JavaScript": 14,
+    "AWS": 12,
+    "Agile": 10,
+    "React": 10,
+    "Django": 9,
+    "FastAPI": 8,
+    "PostgreSQL": 7,
+    "Java": 6,
+    "TypeScript": 6,
+    "LLM": 6,
+    "Azure": 5,
+    "REST API": 5
   },
   "maas_istatistikleri": {
-    "UK_python developer": {
-      "adet": 100,
-      "min": 450,
-      "ort": 80996,
-      "maks": 273000
-    },
     "UK_data analyst": {
       "adet": 100,
       "min": 20800,
-      "ort": 50518,
+      "ort": 49530,
       "maks": 224900
     },
     "UK_data scientist": {
-      "adet": 100,
+      "adet": 50,
       "min": 35000,
-      "ort": 51822,
+      "ort": 60394,
       "maks": 121464
-    },
-    "ABD_python developer": {
-      "adet": 100,
-      "min": 46909,
-      "ort": 114959,
-      "maks": 228514
     },
     "ABD_data analyst": {
       "adet": 100,
@@ -69,54 +57,60 @@
     "ABD_data scientist": {
       "adet": 100,
       "min": 60830,
-      "ort": 133471,
-      "maks": 266542
+      "ort": 132070,
+      "maks": 238655
+    },
+    "ABD_python developer": {
+      "adet": 100,
+      "min": 46909,
+      "ort": 115456,
+      "maks": 228514
     }
   },
   "skill_maas_iliskisi": {
     "Python": {
-      "adet": 215,
-      "ort_maas": 97499
+      "adet": 113,
+      "ort_maas": 113295
     },
     "Machine Learning": {
-      "adet": 36,
-      "ort_maas": 102742
+      "adet": 28,
+      "ort_maas": 112344
     },
     "SQL": {
-      "adet": 30,
-      "ort_maas": 82473
-    },
-    "AWS": {
-      "adet": 20,
-      "ort_maas": 100553
-    },
-    "Django": {
-      "adet": 18,
-      "ort_maas": 92119
-    },
-    "ETL": {
-      "adet": 14,
-      "ort_maas": 100120
+      "adet": 26,
+      "ort_maas": 85899
     },
     "Excel": {
-      "adet": 14,
-      "ort_maas": 66476
+      "adet": 12,
+      "ort_maas": 68972
     },
     "Power BI": {
       "adet": 12,
-      "ort_maas": 68318
+      "ort_maas": 68188
     },
-    "FastAPI": {
-      "adet": 11,
-      "ort_maas": 88633
+    "ETL": {
+      "adet": 12,
+      "ort_maas": 102302
     },
-    "Agile": {
-      "adet": 10,
-      "ort_maas": 96610
+    "AWS": {
+      "adet": 9,
+      "ort_maas": 113175
+    },
+    "Django": {
+      "adet": 8,
+      "ort_maas": 86930
+    },
+    "LLM": {
+      "adet": 6,
+      "ort_maas": 122215
+    },
+    "JavaScript": {
+      "adet": 6,
+      "ort_maas": 85485
     }
   },
   "notlar": [
     "Almanya'da maas bilgisi %7 oraninda mevcut, maas analizi yalniz UK ve ABD",
-    "Skill cikarimi 43.7% oraninda basarili (baslik + ozet aciklamadan)"
+    "Skill cikarimi 37.9% oraninda basarili (baslik + ozet aciklamadan)"
   ]
 }
