@@ -10,6 +10,8 @@ from datetime import date
 import os
 import glob
 import re
+from datetime import datetime, timedelta
+from currency_converter import kurlari_yukle, usd_cevir
 
 
 
@@ -477,47 +479,69 @@ def maas_istatistikleri(df: pd.DataFrame) -> dict:
     print("=" * 70)
     print("MAAS ISTATISTIKLERI")
     print("=" * 70)
-    print("(Not: 4 ulke - UK/GBP, ABD/USD, Almanya/EUR, Polonya/PLN. Hindistan/INR olcek farki nedeniyle haric.)")    
+    print("(Not: 4 ulke - UK/GBP, ABD/USD, Almanya/EUR, Polonya/PLN. Hindistan/INR olcek farki nedeniyle haric.)")
     print()
     
     sonuc = {}
     
-    # Maasli ilanlar (UK ve ABD)
-    # Hindistan INR olcegi farkli, maas analizinden hariç
+    # Maasli ilanlar (Hindistan haric)
     maasli = df[df["maas_min"].notna() & df["ulke"].isin(["UK", "ABD", "Almanya", "Polonya"])].copy()
     maasli["maas_ortalama"] = (maasli["maas_min"] + maasli["maas_max"]) / 2
     
-    print(f"{'Ulke':<8} {'Rol':<20} {'Adet':>5} {'Min':>10} {'Ort':>10} {'Maks':>10}")
-    print("-" * 70)
+    # Ulke -> para birimi haritasi
+    ULKE_PARA = {"UK": "GBP", "ABD": "USD", "Almanya": "EUR", "Polonya": "PLN"}
+    
+    print(f"{'Ulke':<8} {'Rol':<28} {'Adet':>5} {'Ort':>12} {'Birim':>6} {'Ort USD':>12}")
+    print("-" * 80)
     
     for ulke in ["UK", "ABD", "Almanya", "Polonya"]:
+        para_birimi = ULKE_PARA[ulke]
+        
         for rol in df["ana_grup"].unique():
             alt = maasli[(maasli["ulke"] == ulke) & (maasli["ana_grup"] == rol)]
             if len(alt) == 0:
                 continue
+            
             min_m = alt["maas_ortalama"].min()
             ort_m = alt["maas_ortalama"].mean()
             maks_m = alt["maas_ortalama"].max()
-            print(f"{ulke:<8} {rol:<20} {len(alt):>5} {min_m:>10,.0f} {ort_m:>10,.0f} {maks_m:>10,.0f}")
+            
+            # USD karsiligi (ortalamanin)
+            ort_usd = usd_cevir(ort_m, para_birimi)
+            
+            print(f"{ulke:<8} {rol:<28} {len(alt):>5} {ort_m:>12,.0f} {para_birimi:>6} {ort_usd or 0:>12,.0f}")
             
             sonuc[f"{ulke}_{rol}"] = {
                 "adet": len(alt),
                 "min": round(min_m),
                 "ort": round(ort_m),
-                "maks": round(maks_m)
+                "maks": round(maks_m),
+                "para_birimi": para_birimi,
+                "ort_usd": round(ort_usd) if ort_usd else None,
+                "min_usd": round(usd_cevir(min_m, para_birimi)) if usd_cevir(min_m, para_birimi) else None,
+                "maks_usd": round(usd_cevir(maks_m, para_birimi)) if usd_cevir(maks_m, para_birimi) else None
             }
     print()
     return sonuc
 
 
 def skill_maas_iliskisi(df: pd.DataFrame, top_n: int = 10) -> dict:
-    """En sik gecen skill'lerin ortalama maasi (UK + ABD)."""
+    """En sik gecen skill'lerin ortalama maasi (USD'ye normalize edilmis)."""
     print("=" * 70)
-    print(f"SKILL BAZINDA ORTALAMA MAAS (UK + ABD, EN SIK {top_n} SKILL)")
+    print(f"SKILL BAZINDA ORTALAMA MAAS - USD NORMALIZE (EN SIK {top_n} SKILL)")
     print("=" * 70)
+    
+    ULKE_PARA = {"UK": "GBP", "ABD": "USD", "Almanya": "EUR", "Polonya": "PLN"}
     
     maasli = df[df["maas_min"].notna() & df["ulke"].isin(["UK", "ABD", "Almanya", "Polonya"])].copy()
     maasli["maas_ortalama"] = (maasli["maas_min"] + maasli["maas_max"]) / 2
+    
+    # Her ilanin maasini USD'ye cevir
+    maasli["maas_usd"] = maasli.apply(
+        lambda r: usd_cevir(r["maas_ortalama"], ULKE_PARA.get(r["ulke"])), 
+        axis=1
+    )
+    maasli = maasli[maasli["maas_usd"].notna()]
     
     # En sik gecen skiller
     tum_skiller = []
@@ -526,15 +550,15 @@ def skill_maas_iliskisi(df: pd.DataFrame, top_n: int = 10) -> dict:
     en_sik = pd.Series(tum_skiller).value_counts().head(top_n).index.tolist()
     
     sonuc = {}
-    print(f"{'Skill':<22} {'Adet':>5} {'Ort. Maas':>12}")
+    print(f"{'Skill':<22} {'Adet':>5} {'Ort. USD':>12}")
     print("-" * 42)
     for skill in en_sik:
         skill_li = maasli[maasli["skiller"].apply(lambda x: skill in x if isinstance(x, list) else False)]
         if len(skill_li) == 0:
             continue
-        ort = skill_li["maas_ortalama"].mean()
-        print(f"{skill:<22} {len(skill_li):>5} {ort:>12,.0f}")
-        sonuc[skill] = {"adet": len(skill_li), "ort_maas": round(ort)}
+        ort_usd = skill_li["maas_usd"].mean()
+        print(f"{skill:<22} {len(skill_li):>5} {ort_usd:>12,.0f}")
+        sonuc[skill] = {"adet": len(skill_li), "ort_maas_usd": round(ort_usd)}
     print()
     return sonuc
 
@@ -563,9 +587,10 @@ def json_ozet_uret(df: pd.DataFrame, maas_stats: dict, skill_maas: dict) -> None
         "maas_istatistikleri": maas_stats,
         "skill_maas_iliskisi": skill_maas,
         "notlar": [
-            "Maas analizi 4 ulkeyi kapsar: UK (GBP), ABD (USD), Almanya (EUR), Polonya (PLN). Para birimleri farkli, dogrudan karsilastirma yapmadan once normalize edilmelidir.",
-            "Hindistan (INR) maas analizinden haric tutuldu cunku INR olcegi diger 4 ulkeden cok farkli.",
-            "Almanya'da maas bilgisi orani diger ulkelerden dusuk (kulturel sebep, isverenler ilanlarda maas paylasmaz), Almanya istatistikleri daha kucuk ornek uzerinden.",
+            "Maas verileri her ulkenin kendi para biriminde tutulur. USD karsiligi 'ort_usd' alaninda mevcut (ExchangeRate-API ile gercek zamanli kur).",
+            "Maas analizi 4 ulkeyi kapsar: UK/GBP, ABD/USD, Almanya/EUR, Polonya/PLN. Karsilastirma yaparken USD normalize degerler kullanilmali.",
+            "Hindistan (INR) maas analizinden haric tutuldu cunku INR olcegi diger ulkelerden cok farkli (1 USD ~ 95 INR).",
+            "Almanya'da maas bilgisi orani diger ulkelerden dusuk (kulturel sebep, isverenler ilanlarda maas paylasmaz).",
             f"Skill cikarimi {round((df['skill_sayisi'] > 0).sum() * 100 / len(df), 1)}% oraninda basarili (155+ skill icin regex tabanli)."
         ]
     }
@@ -583,6 +608,11 @@ def json_ozet_uret(df: pd.DataFrame, maas_stats: dict, skill_maas: dict) -> None
 # =============== ANA AKIS ===============
 
 def main():
+    # v2.0: Doviz kurlarini yukle (cache'den veya API'den)
+    print("Doviz kurlari hazirlaniyor...")
+    kurlari_yukle()
+    print()
+    
     # En son CSV'yi bul
     csv_yolu = en_son_csv_dosyasini_bul()
     print(f"Veri kaynagi: {csv_yolu}\n")

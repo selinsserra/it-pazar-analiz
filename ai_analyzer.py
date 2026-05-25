@@ -67,10 +67,11 @@ Lutfen analiz et ve TAM olarak su JSON formatinda cevap ver:
     {{"skill": "...", "yorum": "..."}},
     {{"skill": "...", "yorum": "..."}}
   ],
-  "maas_icgorüleri": [
+  "maas_icgoruleri": [
     "Maas verisinde dikkat ceken bir bulgu - kullandigin her sayinin yaninda para birimini yaz (USD, GBP, EUR, PLN)",
-    "Ulkeler arasi bir karsilastirma - her ulkenin maasini KENDI para biriminde belirt, dogrudan rakam karsilastirmasi yapma",
-    "Skill bazli bir gozlem - hangi ulkenin verisi oldugunu ve para birimini belirt"
+    "Ulkeler arasi bir karsilastirma - her ulkenin maasini KENDI para biriminde belirt. Ulkeler arasi DOGRUDAN karsilastirma yapacaksan 'ort_usd' alanindaki USD normalize degerleri kullan ve 'USD karsiligi olarak' diye belirt.",
+    "Skill bazli bir gozlem - 'skill_maas_iliskisi' alanindaki maaslar 4 ulkenin USD normalize ORTALAMASIDIR (ulke karisik). 'Globally bu skill X USD ortalama getiriyor' seklinde belirt, tek bir ulkeye ait gibi sunma.",
+    "Eger bir ulke+rol kombinasyonunda 'adet' degeri 10'dan az ise, yorumun yaninda '(orneklem dusuk: N ilan)' uyarisi ekle."
   ],
   "stratejik_icgoru": "Bu haftanin tek en degerli bulgusu. Sektoru izleyen biri icin neden onemli oldugunu acikla. 2-3 cumle.",
   "veri_kalitesi_notu": "Veride dikkat edilmesi gereken bir konu (ornegin maas bilgisi orani, skill bulunma orani gibi)"
@@ -151,7 +152,7 @@ def yorumu_yazdir(yorum: dict) -> None:
         print(f"  • {s['skill']}: {s['yorum']}")
     
     print(f"\n[MAAS ICGORULERI]")
-    for ic in yorum.get("maas_icgorüleri", []):
+    for ic in yorum.get("maas_icgoruleri", []):
         print(f"  • {ic}")
     
     print(f"\n[STRATEJIK ICGORU]")

@@ -1,0 +1,11 @@
+{
+  "tarih": "2026-05-25",
+  "kurlar": {
+    "USD": 1,
+    "GBP": 0.742852,
+    "EUR": 0.859878,
+    "PLN": 3.647756,
+    "INR": 95.824222
+  },
+  "kaynak": "https://open.er-api.com/v6/latest/USD"
+}

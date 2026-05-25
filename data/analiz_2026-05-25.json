@@ -46,217 +46,330 @@
       "adet": 100,
       "min": 33409,
       "ort": 71774,
-      "maks": 188500
+      "maks": 188500,
+      "para_birimi": "GBP",
+      "ort_usd": 96620,
+      "min_usd": 44973,
+      "maks_usd": 253752
     },
     "UK_Veri Muhendisi": {
       "adet": 100,
       "min": 10000,
       "ort": 71896,
-      "maks": 201500
+      "maks": 201500,
+      "para_birimi": "GBP",
+      "ort_usd": 96784,
+      "min_usd": 13462,
+      "maks_usd": 271252
     },
     "UK_Bulut Muhendisi": {
       "adet": 100,
       "min": 23400,
       "ort": 71500,
-      "maks": 160550
+      "maks": 160550,
+      "para_birimi": "GBP",
+      "ort_usd": 96251,
+      "min_usd": 31500,
+      "maks_usd": 216126
     },
     "UK_Siber Guvenlik": {
       "adet": 100,
       "min": 30000,
       "ort": 48692,
-      "maks": 169000
+      "maks": 169000,
+      "para_birimi": "GBP",
+      "ort_usd": 65547,
+      "min_usd": 40385,
+      "maks_usd": 227502
     },
     "UK_DevOps Muhendisi": {
       "adet": 100,
       "min": 30000,
       "ort": 75038,
-      "maks": 180700
+      "maks": 180700,
+      "para_birimi": "GBP",
+      "ort_usd": 101013,
+      "min_usd": 40385,
+      "maks_usd": 243252
     },
     "UK_Veri/Is Analisti": {
       "adet": 100,
       "min": 20800,
       "ort": 46762,
-      "maks": 113750
+      "maks": 113750,
+      "para_birimi": "GBP",
+      "ort_usd": 62949,
+      "min_usd": 28000,
+      "maks_usd": 153126
     },
     "UK_Yazilim Muhendisi": {
       "adet": 100,
       "min": 25,
       "ort": 73896,
-      "maks": 187850
+      "maks": 187850,
+      "para_birimi": "GBP",
+      "ort_usd": 99476,
+      "min_usd": 34,
+      "maks_usd": 252877
     },
     "ABD_Makine Ogrenmesi Muhendisi": {
       "adet": 100,
       "min": 71315,
       "ort": 105285,
-      "maks": 237124
+      "maks": 237124,
+      "para_birimi": "USD",
+      "ort_usd": 105285,
+      "min_usd": 71315,
+      "maks_usd": 237124
     },
     "ABD_Veri Muhendisi": {
       "adet": 100,
       "min": 66327,
       "ort": 130026,
-      "maks": 265380
+      "maks": 265380,
+      "para_birimi": "USD",
+      "ort_usd": 130026,
+      "min_usd": 66327,
+      "maks_usd": 265380
     },
     "ABD_Bulut Muhendisi": {
       "adet": 100,
       "min": 55713,
       "ort": 143919,
-      "maks": 255773
+      "maks": 255773,
+      "para_birimi": "USD",
+      "ort_usd": 143919,
+      "min_usd": 55713,
+      "maks_usd": 255773
     },
     "ABD_Siber Guvenlik": {
       "adet": 100,
       "min": 60675,
       "ort": 132979,
-      "maks": 264597
+      "maks": 264597,
+      "para_birimi": "USD",
+      "ort_usd": 132979,
+      "min_usd": 60675,
+      "maks_usd": 264597
     },
     "ABD_DevOps Muhendisi": {
       "adet": 100,
       "min": 51278,
       "ort": 118868,
-      "maks": 201076
+      "maks": 201076,
+      "para_birimi": "USD",
+      "ort_usd": 118868,
+      "min_usd": 51278,
+      "maks_usd": 201076
     },
     "ABD_Veri/Is Analisti": {
       "adet": 100,
       "min": 38620,
       "ort": 91910,
-      "maks": 179014
+      "maks": 179014,
+      "para_birimi": "USD",
+      "ort_usd": 91910,
+      "min_usd": 38620,
+      "maks_usd": 179014
     },
     "ABD_Yazilim Muhendisi": {
       "adet": 100,
       "min": 150380,
       "ort": 182224,
-      "maks": 254960
+      "maks": 254960,
+      "para_birimi": "USD",
+      "ort_usd": 182224,
+      "min_usd": 150380,
+      "maks_usd": 254960
     },
     "Almanya_Makine Ogrenmesi Muhendisi": {
       "adet": 9,
       "min": 140,
       "ort": 73182,
-      "maks": 145000
+      "maks": 145000,
+      "para_birimi": "EUR",
+      "ort_usd": 85108,
+      "min_usd": 163,
+      "maks_usd": 168629
     },
     "Almanya_Veri Muhendisi": {
       "adet": 6,
       "min": 38838,
       "ort": 57297,
-      "maks": 80000
+      "maks": 80000,
+      "para_birimi": "EUR",
+      "ort_usd": 66633,
+      "min_usd": 45167,
+      "maks_usd": 93036
     },
     "Almanya_Bulut Muhendisi": {
       "adet": 2,
       "min": 65000,
       "ort": 77500,
-      "maks": 90000
+      "maks": 90000,
+      "para_birimi": "EUR",
+      "ort_usd": 90129,
+      "min_usd": 75592,
+      "maks_usd": 104666
     },
     "Almanya_Siber Guvenlik": {
       "adet": 12,
       "min": 92,
       "ort": 70641,
-      "maks": 100500
+      "maks": 100500,
+      "para_birimi": "EUR",
+      "ort_usd": 82153,
+      "min_usd": 107,
+      "maks_usd": 116877
     },
     "Almanya_DevOps Muhendisi": {
       "adet": 6,
       "min": 56000,
       "ort": 64417,
-      "maks": 90000
+      "maks": 90000,
+      "para_birimi": "EUR",
+      "ort_usd": 74914,
+      "min_usd": 65126,
+      "maks_usd": 104666
     },
     "Almanya_Veri/Is Analisti": {
       "adet": 5,
       "min": 3,
       "ort": 60801,
-      "maks": 117500
+      "maks": 117500,
+      "para_birimi": "EUR",
+      "ort_usd": 70708,
+      "min_usd": 3,
+      "maks_usd": 136647
     },
     "Almanya_Yazilim Muhendisi": {
       "adet": 38,
       "min": 78,
       "ort": 81449,
-      "maks": 110000
+      "maks": 110000,
+      "para_birimi": "EUR",
+      "ort_usd": 94722,
+      "min_usd": 90,
+      "maks_usd": 127925
     },
     "Polonya_Makine Ogrenmesi Muhendisi": {
       "adet": 40,
       "min": 1830,
       "ort": 321729,
-      "maks": 1680000
+      "maks": 1680000,
+      "para_birimi": "PLN",
+      "ort_usd": 88199,
+      "min_usd": 502,
+      "maks_usd": 460557
     },
     "Polonya_Veri Muhendisi": {
       "adet": 80,
       "min": 672,
       "ort": 128929,
-      "maks": 510000
+      "maks": 510000,
+      "para_birimi": "PLN",
+      "ort_usd": 35345,
+      "min_usd": 184,
+      "maks_usd": 139812
     },
     "Polonya_Bulut Muhendisi": {
       "adet": 55,
       "min": 498,
       "ort": 214182,
-      "maks": 491400
+      "maks": 491400,
+      "para_birimi": "PLN",
+      "ort_usd": 58716,
+      "min_usd": 137,
+      "maks_usd": 134713
     },
     "Polonya_Siber Guvenlik": {
       "adet": 65,
       "min": 1860,
       "ort": 255795,
-      "maks": 504000
+      "maks": 504000,
+      "para_birimi": "PLN",
+      "ort_usd": 70124,
+      "min_usd": 510,
+      "maks_usd": 138167
     },
     "Polonya_DevOps Muhendisi": {
       "adet": 75,
       "min": 360,
       "ort": 160793,
-      "maks": 588000
+      "maks": 588000,
+      "para_birimi": "PLN",
+      "ort_usd": 44080,
+      "min_usd": 99,
+      "maks_usd": 161195
     },
     "Polonya_Veri/Is Analisti": {
       "adet": 63,
       "min": 1260,
       "ort": 223322,
-      "maks": 372960
+      "maks": 372960,
+      "para_birimi": "PLN",
+      "ort_usd": 61222,
+      "min_usd": 345,
+      "maks_usd": 102244
     },
     "Polonya_Yazilim Muhendisi": {
       "adet": 68,
       "min": 678,
       "ort": 188522,
-      "maks": 570000
+      "maks": 570000,
+      "para_birimi": "PLN",
+      "ort_usd": 51682,
+      "min_usd": 186,
+      "maks_usd": 156260
     }
   },
   "skill_maas_iliskisi": {
     "Machine Learning": {
       "adet": 320,
-      "ort_maas": 124324
+      "ort_maas_usd": 100564
     },
     "Azure": {
       "adet": 223,
-      "ort_maas": 126549
+      "ort_maas_usd": 80395
     },
     "Python": {
       "adet": 200,
-      "ort_maas": 146031
+      "ort_maas_usd": 69890
     },
     "AWS": {
       "adet": 188,
-      "ort_maas": 127528
+      "ort_maas_usd": 87778
     },
     "Agile": {
       "adet": 163,
-      "ort_maas": 150071
+      "ort_maas_usd": 141990
     },
     "SQL": {
       "adet": 162,
-      "ort_maas": 120365
+      "ort_maas_usd": 62236
     },
     "CI/CD": {
       "adet": 154,
-      "ort_maas": 126654
+      "ort_maas_usd": 74586
     },
     "Kubernetes": {
       "adet": 113,
-      "ort_maas": 138946
+      "ort_maas_usd": 74803
     },
     "GCP": {
       "adet": 94,
-      "ort_maas": 121413
+      "ort_maas_usd": 65758
     },
     "Terraform": {
       "adet": 92,
-      "ort_maas": 115187
+      "ort_maas_usd": 62016
     }
   },
   "notlar": [
-    "Maas analizi 4 ulkeyi kapsar: UK (GBP), ABD (USD), Almanya (EUR), Polonya (PLN). Para birimleri farkli, dogrudan karsilastirma yapmadan once normalize edilmelidir.",
-    "Hindistan (INR) maas analizinden haric tutuldu cunku INR olcegi diger 4 ulkeden cok farkli.",
-    "Almanya'da maas bilgisi orani diger ulkelerden dusuk (kulturel sebep, isverenler ilanlarda maas paylasmaz), Almanya istatistikleri daha kucuk ornek uzerinden.",
+    "Maas verileri her ulkenin kendi para biriminde tutulur. USD karsiligi 'ort_usd' alaninda mevcut (ExchangeRate-API ile gercek zamanli kur).",
+    "Maas analizi 4 ulkeyi kapsar: UK/GBP, ABD/USD, Almanya/EUR, Polonya/PLN. Karsilastirma yaparken USD normalize degerler kullanilmali.",
+    "Hindistan (INR) maas analizinden haric tutuldu cunku INR olcegi diger ulkelerden cok farkli (1 USD ~ 95 INR).",
+    "Almanya'da maas bilgisi orani diger ulkelerden dusuk (kulturel sebep, isverenler ilanlarda maas paylasmaz).",
     "Skill cikarimi 54.3% oraninda basarili (155+ skill icin regex tabanli)."
   ]
 }

@@ -3,33 +3,33 @@
   "kaynak_analiz": "data/analiz_2026-05-25.json",
   "model": "claude-sonnet-4-5",
   "kullanim": {
-    "giris_token": 3450,
-    "cikis_token": 964,
-    "tahmini_maliyet_usd": 0.02481
+    "giris_token": 5054,
+    "cikis_token": 958,
+    "tahmini_maliyet_usd": 0.029532
   },
   "yorum": {
-    "haftanin_ozeti": "3498 ilanin analiz edildigi bu haftada Machine Learning 592 gorunumle en cok aranan skill olurken, bulut teknolojileri (Azure 381, AWS 331) guclu talebini surdurdu. Ulkeler arasi maas dengesi korunurken, ABD'de Yazilim Muhendisligi ortalama 182.224 USD ile en yuksek maas grubunu olusturdu.",
+    "haftanin_ozeti": "3498 IT ilanı tarandı ve 7 rol grubunda veri toplandı. Machine Learning, Azure ve AWS liderliği sürdürürken, skill tespit oranı %54.3'e yükseldi. ABD'de Bulut Mühendisi ve Yazılım Mühendisi rolleri maaş liderliğini koruyor.",
     "yukselen_skiller": [
       {
         "skill": "Machine Learning",
-        "yorum": "592 gorunumle liste basinda, diger skillere gore belirgin bir ara acmis durumda."
+        "yorum": "592 ilanda geçiyor ve globally ortalama 100,564 USD getiriyor, tüm roller arasında en yüksek maas ilişkisi."
       },
       {
-        "skill": "LLM",
-        "yorum": "73 gorunumle ilk 20'ye girerek, buyuk dil modelleri uzerine calismanin artan onemini gosteriyor."
+        "skill": "Agile",
+        "yorum": "175 ilanda görünüyor ancak 163 ilan için maas verisi mevcut ve globally ortalama 141,990 USD ile en yüksek maas ortalamasına sahip skill."
       },
       {
-        "skill": "Databricks",
-        "yorum": "84 gorunumle veri muhendisligi ekosisteminde guclu bir platform tercihi haline geldi."
+        "skill": "Azure",
+        "yorum": "381 ilanla AWS'i (331) geride bırakıyor ve bulut platformları arasında en çok talep gören teknoloji."
       }
     ],
     "maas_icgoruleri": [
-      "ABD'de Yazilim Muhendisleri 182.224 USD ortalama ile en yuksek maas grubunu olusturur, Bulut Muhendisleri 143.919 USD ve Veri Muhendisleri 130.026 USD ile takip eder.",
-      "UK'de DevOps Muhendisleri 75.038 GBP, Yazilim Muhendisleri 73.896 GBP ve Veri Muhendisleri 71.896 GBP ile yakin ortalamalar gosterirken, Siber Guvenlik 48.692 GBP ile goreceli olarak daha dusuk.",
-      "Polonya'da Makine Ogrenmesi Muhendisleri 321.729 PLN ortalamayla diger roller arasinda on plana cikarken (Siber Guvenlik 255.795 PLN, Veri/Is Analisti 223.322 PLN), Almanya'da Yazilim Muhendisligi 81.449 EUR ile en yuksek ortalamaya sahip (78 ilan uzerinden).",
-      "Agile skillinin ortalama maas etkisi 150.071 ile en yuksek seviyede, Python 146.031 ve Kubernetes 138.946 ile onu takip ediyor - bu uç skilller arasi is birliginin degerini gosteriyor."
+      "ABD'de Yazılım Mühendisi rolü 182,224 USD ortalama ile tüm roller arasında en yüksek maası sunuyor, ardından Bulut Mühendisi 143,919 USD ve Veri Mühendisi 130,026 USD ile geliyor.",
+      "USD karşılığı olarak ABD Bulut Mühendisi (143,919 USD) ve DevOps Mühendisi (101,013 USD) UK'den belirgin şekilde yüksek maas alıyor; UK'de DevOps ortalama 75,038 GBP (101,013 USD), ABD'de 118,868 USD.",
+      "Globally Agile skill'i 141,990 USD ortalama getiriyor (4 ülkenin USD normalize ortalaması), Machine Learning 100,564 USD ve AWS 87,778 USD ile takip ediyor.",
+      "Almanya'da Bulut Mühendisi 77,500 EUR ortalama (90,129 USD karşılığı) ancak dikkat: sadece 2 ilan var (örneklem düşük: 2 ilan)."
     ],
-    "stratejik_icgoru": "Machine Learning'in 592 gorunumle acik ara liderliginin yaninda, LLM'in ilk 20 skill arasina girmesi kritik bir donum noktasina isaret ediyor. GenAI donusumu yalnizca ML muhendislerini degil, bu teknolojileri entegre edebilecek yazilim ve veri mühendislerini de talep ediyor. Agile ve CI/CD gibi skilllerin yuksek maas ortalamalarina sahip olmasi, teknik derinligin yanindan surecsel olgunlugun da onem kazandigini gosteriyor.",
-    "veri_kalitesi_notu": "Skill bulunma orani %54.3 ile makul seviyede ancak iyilestirilebilir. Almanya'da maas bilgisi sadece 78 ilan uzerinden elde edildi (ornek kucuk), bu ulke icin trend yorumlari diger ulkelere gore daha az guvenilir. Polonya 446 maasli ilan ile en yuksek veri yogunluguna sahip."
+    "stratejik_icgoru": "Agile skill'inin 141,990 USD ile en yüksek global maas ortalamasına sahip olması, teknik beceriler kadar metodoloji yetkinliğinin değer gördüğünü gösteriyor. Machine Learning talebi (592 ilan) yüksek kalırken, Azure'un AWS'i geçmesi Microsoft bulut ekosisteminde büyüme sinyali veriyor. ABD'de Yazılım Mühendisi maaslarının (182K USD) diğer tüm rollerden belirgin şekilde yüksek olması, genel yazılım geliştirme kapasitesinin hala en değerli yetenek alanı olduğunu teyit ediyor.",
+    "veri_kalitesi_notu": "Skill bulunma oranı %54.3 seviyesinde. Almanya'da maas verisi örnek sayısı düşük (2-12 ilan arası), bu nedenle Almanya maas yorumları dikkatle değerlendirilmeli. Hindistan maas analizinden çıkarılmış (INR ölçek farkı nedeniyle)."
   }
 }
